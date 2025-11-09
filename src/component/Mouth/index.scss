@@ -1,0 +1,219 @@
+.monthlyBill {
+  height: 100vh;
+  background: #f5f5f5;
+  
+  .nav {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+  
+  .content {
+    padding: 16px;
+    
+    .header {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      
+      .date {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        padding: 8px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        cursor: pointer;
+        
+        .arrow {
+          transition: transform 0.3s;
+          font-size: 12px;
+          color: #666;
+          
+          &.open {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      
+      .twoLineOverview {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        
+        .item {
+          .money {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            
+            &.expense {
+              color: #ff4d4f;
+            }
+            
+            &.income {
+              color: #52c41a;
+            }
+            
+            &.balance {
+              &.positive {
+                color: #52c41a;
+              }
+              
+              &.negative {
+                color: #ff4d4f;
+              }
+            }
+          }
+          
+          .type {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+    
+    .monthList {
+      .monthItem {
+        background: white;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 12px;
+        
+        .monthHeader {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 12px;
+          
+          .monthTitle {
+            font-size: 16px;
+            font-weight: bold;
+          }
+          
+          .monthAmount {
+            font-size: 16px;
+            font-weight: bold;
+            
+            &.positive {
+              color: #52c41a;
+            }
+            
+            &.negative {
+              color: #ff4d4f;
+            }
+          }
+        }
+        
+        .monthDetails {
+          .detailItem {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            
+            .label {
+              color: #666;
+            }
+            
+            .value {
+              font-weight: 500;
+              
+              &.income {
+                color: #52c41a;
+              }
+              
+              &.expense {
+                color: #ff4d4f;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    .billList {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+      
+      .billHeader {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #f0f0f0;
+      }
+      
+      .billItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+        border-bottom: 1px solid #f5f5f5;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        .billLeft {
+          .billType {
+            font-weight: 500;
+            margin-bottom: 4px;
+          }
+          
+          .billDate {
+            font-size: 12px;
+            color: #999;
+          }
+        }
+        
+        .billRight {
+          text-align: right;
+          
+          .billAmount {
+            font-weight: bold;
+            margin-bottom: 4px;
+            
+            &.income {
+              color: #52c41a;
+            }
+            
+            &.expense {
+              color: #ff4d4f;
+            }
+          }
+          
+          .billDesc {
+            font-size: 12px;
+            color: #999;
+          }
+        }
+      }
+    }
+    
+    .emptyState {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+      
+      .emptyText {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+
+.kaDate {
+  .adm-picker-header {
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .adm-picker-body {
+    background: white;
+  }
+}

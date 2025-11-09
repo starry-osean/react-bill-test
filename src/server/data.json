@@ -1,0 +1,111 @@
+{
+  "data": [
+    {
+      "date": "2022-10-24",
+      "id": "1",
+      "money": -10,
+      "category": "餐饮",
+      "description": "早餐",
+      "type": "expense"
+    },
+    {
+      "date": "2022-10-24",
+      "id": "2",
+      "money": 5000,
+      "category": "工资",
+      "description": "月度工资",
+      "type": "income"
+    },
+    {
+      "date": "2022-10-25",
+      "id": "3",
+      "money": -150,
+      "category": "交通",
+      "description": "地铁充值",
+      "type": "expense"
+    },
+    {
+      "date": "2022-10-26",
+      "id": "4",
+      "money": -300,
+      "category": "购物",
+      "description": "购买衣服",
+      "type": "expense"
+    },
+    {
+      "date": "2022-10-27",
+      "id": "5",
+      "money": -45,
+      "category": "餐饮",
+      "description": "午餐",
+      "type": "expense"
+    },
+    {
+      "date": "2022-10-28",
+      "id": "6",
+      "money": 1000,
+      "category": "兼职",
+      "description": "设计项目收入",
+      "type": "income"
+    },
+    {
+      "date": "2022-10-29",
+      "id": "7",
+      "money": -200,
+      "category": "娱乐",
+      "description": "电影票",
+      "type": "expense"
+    },
+    {
+      "date": "2022-10-30",
+      "id": "8",
+      "money": -80,
+      "category": "医疗",
+      "description": "购买药品",
+      "type": "expense"  
+    },
+    {
+      "date": "2022-11-01", 
+      "id": "9",
+      "money": -1200,
+      "category": "房租",
+      "description": "11月房租",
+      "type": "expense"
+    },
+    {
+      "date": "2022-12-02",
+      "id": "10",
+      "money": -60,
+      "category": "餐饮",
+      "description": "超市购物",
+      "type": "expense"
+    }
+  ],
+  "summary": {
+    "total_income": 6000,
+    "total_expense": 2045,
+    "balance": 3955,
+    "monthly_data": {
+      "2022-10": {
+        "income": 6000,
+        "expense": 1045,
+        "balance": 4955
+      },
+      "2022-11": {
+        "income": 0,
+        "expense": 1260,
+        "balance": -1260
+      }
+    }
+  },
+  "categories": {
+    "expense": ["餐饮", "交通", "购物", "娱乐", "医疗", "房租", "水电费", "通讯"],
+    "income": ["工资", "兼职", "投资", "奖金", "其他收入"]
+  },
+  "metadata": {
+    "currency": "CNY",
+    "created_date": "2022-10-24",
+    "last_updated": "2022-11-02",
+    "version": "1.0"
+  }
+}
