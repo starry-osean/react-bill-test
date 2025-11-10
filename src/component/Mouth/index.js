@@ -4,7 +4,7 @@ import './index.scss'
 import { useSelector } from "react-redux";
 import _ from 'lodash';
 import dayjs from "dayjs";
-
+import DayBill from "./Day/DayBill";
 const Month = () => {
   const [dateVisible, setDateVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -17,6 +17,8 @@ const Month = () => {
   const monthGroup = useMemo(() => {
     return _.groupBy(billList, (item) => dayjs(item.date).format('YYYY-MM'));
   }, [billList]);
+ 
+  
 
   // 获取当前选中月份的统计数据
   const currentMonthStats = useMemo(() => {
@@ -62,7 +64,15 @@ const Month = () => {
       };
     }).sort((a, b) => b.month.localeCompare(a.month)); // 按月份倒序排列
   }, [monthGroup]);
-
+   const dayGroup=useMemo(() => {
+    const GroupData=_.groupBy(currentMonthStats.bills, (item) => dayjs(item.date).format('YYYY-MM-DD'));
+    const keys=Object.keys(GroupData)
+    return {
+      keys,
+      GroupData
+    }
+  }, [currentMonthStats.bills]);
+  console.log('is',dayGroup);
   const onConfirm = (date) => {
     setSelectedDate(date);
     setDateVisible(false);
@@ -126,7 +136,13 @@ const Month = () => {
             max={new Date()} 
           />{/*当前时间对应的 Date 对象通过 prop 名 max 传给子组件*/}
         </div>
-
+        <p>详细账单</p>
+        {
+          dayGroup.keys.map(key=>{
+            return    <DayBill  key={key} date={key} billList={dayGroup.GroupData[key]}/>
+          })
+        }
+     
         {/* 月份列表 */}
         <div className="monthList">
           {monthSummary.map(monthData => (
@@ -156,33 +172,6 @@ const Month = () => {
             </div>
           ))}
         </div>
-          
-        {/* 当前月份账单详情 */}
-        {currentMonthStats.bills.length > 0 && (
-        <div className="billList">
-            <div className="billHeader">账单详情</div>
-            {currentMonthStats.bills
-              .sort((a, b) => new Date(b.date) - new Date(a.date)) // 按日期倒序
-              .map(bill => (
-                <div key={bill.id} className="billItem">
-                  <div className="billLeft">
-                    <div className="billType">{bill.category}</div>
-                    <div className="billDate">
-                      {dayjs(bill.date).format('MM-DD')}
-                    </div>
-                  </div>
-                  <div className="billRight">
-                    <div className={`billAmount ${bill.money > 0 ? 'income' : 'expense'}`}>
-                      {bill.money > 0 ? '+' : ''}¥{Math.abs(bill.money).toFixed(2)}
-                    </div>
-                    <div className="billDesc">{bill.description}</div>
-                  </div>
-                </div>
-              ))
-            }
-          </div>
-        )}
-
         {currentMonthStats.bills.length === 0 && (
           <div className="emptyState">
             <div className="emptyText">暂无账单数据</div>

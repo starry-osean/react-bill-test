@@ -1,0 +1,125 @@
+.dayBill {
+  padding: 16px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin: 12px;
+
+  .header {
+    .date {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      cursor: pointer;
+      user-select: none;
+
+      .text {
+        font-size: 15px;
+        color: #333;
+        margin-right: 4px;
+      }
+
+      .arrow {
+        font-size: 12px;
+        color: #999;
+        transition: transform 0.2s ease;
+
+        &.open {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    // 金额三栏 - 修改类名为 overview
+    .overview {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      margin-bottom: 16px;
+
+      > div {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .money {  // 修复拼写：.moneny -> .money
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .type {
+        font-size: 12px;
+        color: #666;
+      }
+
+      .pay .money {
+        color: #e63838;
+      }
+
+      .income .money {
+        color: #39b54a;
+      }
+
+      .balance .money {
+        color: #333;
+      }
+    }
+  }
+
+  // 账单列表样式
+  .billList {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 12px;
+
+    .billItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #f5f5f5;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .detail {
+        flex: 1;
+        
+        .category {
+          font-size: 14px;
+          color: #333;
+          font-weight: 500;
+          margin-bottom: 4px;
+        }
+
+        .description {
+          font-size: 12px;
+          color: #999;
+          margin-bottom: 4px;
+        }
+
+        .time {
+          font-size: 11px;
+          color: #ccc;
+        }
+      }
+
+      .amount {
+        font-size: 16px;
+        font-weight: 600;
+
+        &.income {
+          color: #39b54a;
+        }
+
+        &.expense {
+          color: #e63838;
+        }
+      }
+    }
+  }
+}
