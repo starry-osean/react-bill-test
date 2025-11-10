@@ -31,7 +31,7 @@
       }
     }
 
-    // 金额三栏 - 修改类名为 overview
+    // 金额三栏
     .overview {
       display: flex;
       justify-content: space-around;
@@ -45,7 +45,7 @@
         align-items: center;
       }
 
-      .money {  // 修复拼写：.moneny -> .money
+      .money {
         font-size: 20px;
         font-weight: 600;
         margin-bottom: 4px;
