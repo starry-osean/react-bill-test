@@ -62,10 +62,10 @@
       "money": -80,
       "category": "医疗",
       "description": "购买药品",
-      "type": "expense"  
+      "type": "expense"
     },
     {
-      "date": "2025-11-01", 
+      "date": "2025-11-01",
       "id": "9",
       "money": -1200,
       "category": "房租",
@@ -79,6 +79,13 @@
       "category": "餐饮",
       "description": "超市购物",
       "type": "expense"
+    },
+    {
+      "id": "4e42",
+      "type": "income",
+      "money": 4,
+      "date": "2025-11-10T16:00:00.000Z",
+      "useFor": "bonus"
     }
   ],
   "summary": {
@@ -99,8 +106,23 @@
     }
   },
   "categories": {
-    "expense": ["餐饮", "交通", "购物", "娱乐", "医疗", "房租", "水电费", "通讯"],
-    "income": ["工资", "兼职", "投资", "奖金", "其他收入"]
+    "expense": [
+      "餐饮",
+      "交通",
+      "购物",
+      "娱乐",
+      "医疗",
+      "房租",
+      "水电费",
+      "通讯"
+    ],
+    "income": [
+      "工资",
+      "兼职",
+      "投资",
+      "奖金",
+      "其他收入"
+    ]
   },
   "metadata": {
     "currency": "CNY",

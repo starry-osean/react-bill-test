@@ -2,7 +2,6 @@ import classNames from "classnames";
 import './index.scss'
 import { useMemo, useState } from "react";
 import dayjs from "dayjs";
-
 const DayBill = ({ billList = [], date }) => { 
   const [visible, setVisible] = useState(false); // 移到组件顶层
 
@@ -78,7 +77,7 @@ const DayBill = ({ billList = [], date }) => {
                 <div className="detail">
                   <div className="category">{item.category}</div>
                   <div className="description">{item.description}</div>
-                  <div className="time">{dayjs(item.date).format('HH:mm')}</div>
+                  <div className="time">{dayjs(item.date ).format('MM-DD')}</div>
                 </div>
                 <div className={`amount ${item.money > 0 ? 'income' : 'expense'}`}>
                   {item.money > 0 ? '+' : ''}¥{Math.abs(item.money).toFixed(2)}
