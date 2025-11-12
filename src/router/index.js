@@ -8,17 +8,21 @@ const router=createBrowserRouter([
         path:'/',
         element:<Layout/>,
          children:[
+             {
+                index: true,  // 默认路由
+                element: <Mouth />
+            },
             {
-                path:'Mouth',
+                path:'mouth',
                 element:<Mouth/>
             },
             {
-                path:'Year',
+                path:'year',
                 element:<Year/>
             }
         ]
     },{
-        path:'/New',
+        path:'/new',
         element:<New/>
     }
 ])

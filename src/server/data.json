@@ -86,6 +86,14 @@
       "money": 4,
       "date": "2025-11-10T16:00:00.000Z",
       "useFor": "bonus"
+    },
+    {
+      "date": "2024-10-30",
+      "id": "8",
+      "money": -80,
+      "category": "医疗",
+      "description": "购买药品",
+      "type": "expense"
     }
   ],
   "summary": {
