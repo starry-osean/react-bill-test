@@ -1,24 +1,24 @@
 import dayjs from "dayjs";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
-import { DatePicker,NavBar } from "antd-mobile";
-import _ from "lodash"
+import { DatePicker, NavBar } from "antd-mobile";
+import _ from "lodash";
 import './index.scss'; 
+import * as echarts from 'echarts';
+
 const Year = () => {
     const billList = useSelector(state => state.bill.billList);
-    console.log('is', billList);
-    
-    // 修正状态命名
     const [dateVisible, setDateVisible] = useState(false);
     const [currentYear, setCurrentYear] = useState(new Date());
+    const chartRef = useRef(null);
+    const chartInstance = useRef(null);
+
     const format = dayjs(currentYear).format('YYYY');
 
     // 按年份分组
     const YearGroup = useMemo(() => {
         return _.groupBy(billList, item => dayjs(item.date).format('YYYY'));
     }, [billList]);
-
-    console.log('y', YearGroup);
 
     // 计算当前年份的统计数据
     const currentYearStats = useMemo(() => {
@@ -77,7 +77,72 @@ const Year = () => {
         return monthlyData.sort((a, b) => b.month.localeCompare(a.month));
     }, [currentYearStats.bills]);
 
-    console.log('月度汇总数据:', monthlyStats);
+    // 初始化图表
+    useEffect(() => {
+        if (chartRef.current && monthlyStats.length > 0) {
+            // 销毁之前的图表实例
+            if (chartInstance.current) {
+                chartInstance.current.dispose();
+            }
+            
+            // 初始化新图表
+            chartInstance.current = echarts.init(chartRef.current);
+            
+            // 准备图表数据 - 使用月度支出数据
+            const chartData = monthlyStats.map(item => ({
+                value: item.expense,
+                name: dayjs(item.month).format('MM月')
+            }));
+
+            const option = {
+                title: {
+                    text: '月度支出分布',
+                    left: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: ¥{c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: chartData.map(item => item.name)
+                },
+                series: [
+                    {
+                        name: '月度支出',
+                        type: 'pie',
+                        radius: '50%',
+                        data: chartData,
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+
+            chartInstance.current.setOption(option);
+
+            // 响应式调整
+            const handleResize = () => {
+                chartInstance.current?.resize();
+            };
+            window.addEventListener('resize', handleResize);
+
+            // 清理函数
+            return () => {
+                window.removeEventListener('resize', handleResize);
+                if (chartInstance.current) {
+                    chartInstance.current.dispose();
+                    chartInstance.current = null;
+                }
+            };
+        }
+    }, [monthlyStats]);
 
     const onConfirm = (date) => {
         setCurrentYear(date); 
@@ -87,8 +152,9 @@ const Year = () => {
     return (
         <div className="yearly-bill">
             <NavBar className="nav" backArrow={false}>
-                    年度收支
+                年度收支
             </NavBar>
+            
             <div className="header">
                 {/* 日期选择器触发按钮 */}
                 <div 
@@ -129,13 +195,24 @@ const Year = () => {
                 <DatePicker
                     className="year-picker"
                     title="选择年份"
-                    precision="year" // 改为选择年份
+                    precision="year"
                     visible={dateVisible}
                     onClose={() => setDateVisible(false)}
                     onConfirm={onConfirm}
                     max={new Date()}
                 />
             </div>
+
+            {/* 图表区域 */}
+            {monthlyStats.length > 0 && (
+                <div className="chart-section">
+                    <div 
+                        ref={chartRef} 
+                        className="chart-container"
+                        style={{ width: '100%', height: '550px' ,backgroundColor:"white"}}
+                    />
+                </div>
+            )}
 
             {/* 月度明细 */}
             <div className="monthly-breakdown">

@@ -48,6 +48,7 @@ const Layout = () => {
   const Mobile=localStorage.getItem('Mobile')
   const loginOut=()=>{
     localStorage.removeItem('Mouth')
+    localStorage.removeItem('token_key')
     nav('/login')
     alert('退出成功')
   }

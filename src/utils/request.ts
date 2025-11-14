@@ -6,6 +6,12 @@ const request = axios.create({
 });
 
 request.interceptors.request.use((config) => {
+    //添加token
+    const token=localStorage.getItem('token_key')
+    //拼接token
+    if(token){
+        config.headers.Authorization=`Bearer ${token}`
+    }
     return config;
 }, (error) => {
     return Promise.reject(error);

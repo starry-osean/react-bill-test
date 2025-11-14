@@ -1,8 +1,9 @@
 .yearly-bill {
   padding: 16px;
   .nav{
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: white;
+    color: black;
+    font-weight: 700;
   }
   .header {
     margin-bottom: 20px;
@@ -37,9 +38,10 @@
       display: flex;
       justify-content: space-around;
       text-align: center;
+      height: 80px;
       .overview-item {
         .money {
-          font-size: 18px;
+          font-size: 25px;
           font-weight: bold;
           display: block;
           margin-bottom: 4px;

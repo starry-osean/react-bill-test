@@ -1,5 +1,5 @@
 import { NavBar, DatePicker } from "antd-mobile";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import './index.scss'
 import { useSelector } from "react-redux";
 import _ from 'lodash';
@@ -10,7 +10,6 @@ const Month = () => {
   const [dateVisible, setDateVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const billList = useSelector(state => state.bill.billList);
- 
   
   // 格式化选中的日期为 YYYY-MM
   const formattedDate = dayjs(selectedDate).format('YYYY-MM');
@@ -89,7 +88,7 @@ const Month = () => {
         <div className="header"> 
           {/* 日期选择器 */}
           <div 
-            className="date"
+            className="date" 
             onClick={() => setDateVisible(true)}
           >
             <span className="text">
@@ -138,7 +137,7 @@ const Month = () => {
             max={new Date()} 
           />{/*当前时间对应的 Date 对象通过 prop 名 max 传给子组件*/}
         </div>
-        <p>详细账单</p>
+        <p style={  {fontWeight:600,fontSize:"20px"}}>详细账单</p>
         {
           dayGroup.keys.map(key=>{
             return    <DayBill  key={key} date={key} billList={dayGroup.GroupData[key]}/>

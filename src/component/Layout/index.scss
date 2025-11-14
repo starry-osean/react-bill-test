@@ -14,7 +14,7 @@ $color-gray-light: #f5f5f5;
 $color-gray-border: #f0f0f0;
 
 .layout {
-  height: 100vh;
+  max-height: 180vh;
   display: flex;
   flex-direction: column;
   background-color: $color-gray-light;
@@ -26,7 +26,8 @@ $color-gray-border: #f0f0f0;
     background: $primary-gradient;
     color: $color-white;
     box-shadow: $shadow-light;
-    
+    margin-left: 20px;
+    margin-right: 20px; 
     img {
       width: 40px;
       height: 40px;
@@ -36,9 +37,9 @@ $color-gray-border: #f0f0f0;
     }
     
     p {
-      margin: 0;
+     
       font-size: 15px;
-      
+      margin-left: -760px;
       span {
         font-weight: 800;
         font-size: 20px;
@@ -192,7 +193,7 @@ $color-gray-border: #f0f0f0;
     &::-webkit-scrollbar-thumb {
       background: #c1c1c1;
       border-radius: 2px;
-      transition: background 0.3s ease;
+      transition: 0.3s ease;
     }
 
     &::-webkit-scrollbar-thumb:hover {

@@ -14,7 +14,6 @@ const New = () => {
   const navigate = useNavigate()
   // 1. 准备一个控制收入支出的状态
   const [billType, setBillType] = useState('expense') // pay-支出 income-收入
-
   // 收集金额
   const [money, setMoney] = useState(0)
   const moneyChange = (value) => {

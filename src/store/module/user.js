@@ -4,7 +4,7 @@ import request from "../../utils/request.ts";
 const useStore = createSlice({
     name: 'user', 
     initialState: {
-        token: ''
+        token: localStorage.getItem('token_key')||''
     },
     reducers: {
         setToken(state, action) {
@@ -18,6 +18,7 @@ const fetchLogin = (loginForm) => {
         const res = await request.post('/authorizations', loginForm) 
         //存token
         dispatch(setToken(res.data.token))
+        localStorage.setItem('token_key',res.data.token)
         console.log(res.data.token);
         
     }
