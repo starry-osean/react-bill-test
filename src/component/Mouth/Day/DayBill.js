@@ -26,7 +26,7 @@ const DayBill = ({ billList = [], date }) => {
       total: pay + income
     };
   }, [billList]);
-
+  console.log('bill',billList);
   return (
     <div className={classNames('dayBill')}>  
       <div className="header">
@@ -75,7 +75,7 @@ const DayBill = ({ billList = [], date }) => {
             return (
               <div className="billItem" key={item.id || item.key}>
                 <div className="detail">
-                  <div className="category">{item.category}</div>
+                  <div className="category">{item.category||item.useFor}</div>
                   <div className="description">{item.description}</div>
                   <div className="time">{dayjs(item.date ).format('MM-DD')}</div>
                 </div>

@@ -94,6 +94,27 @@
       "category": "医疗",
       "description": "购买药品",
       "type": "expense"
+    },
+    {
+      "id": "3caa",
+      "type": "income",
+      "money": 12,
+      "date": "2025-11-14T16:00:00.000Z",
+      "useFor": "salary"
+    },
+    {
+      "id": "aed7",
+      "type": "income",
+      "money": 12,
+      "date": "2025-11-14T16:00:00.000Z",
+      "useFor": "salary"
+    },
+    {
+      "id": "f025",
+      "type": "income",
+      "money": 12,
+      "date": "2025-11-14T16:00:00.000Z",
+      "useFor": "salary"
     }
   ],
   "summary": {

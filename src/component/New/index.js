@@ -34,6 +34,7 @@ const New = () => {
     }
     console.log(data)
     dispatch(addBillList(data))
+    alert('保存成功')
   }
   // 存储选择的时间
   const [date, setDate] = useState()

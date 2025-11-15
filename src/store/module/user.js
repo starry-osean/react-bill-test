@@ -23,9 +23,17 @@ const fetchLogin = (loginForm) => {
         
     }
 }
-
+const fetchRegister=(registerForm)=>{
+     return async (dispatch) => {
+        const res = await request.post('/authorizations', registerForm) 
+        dispatch(setToken(res.data.token))
+        localStorage.setItem('token_key',res.data.token)
+        console.log(res.data.token);
+        
+    }
+}
 const { setToken } = useStore.actions
 const userReducer = useStore.reducer
 
-export { setToken, fetchLogin }
+export { setToken, fetchLogin,fetchRegister }
 export default userReducer

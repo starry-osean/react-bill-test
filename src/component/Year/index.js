@@ -124,11 +124,12 @@ const Year = () => {
                     }
                 ]
             };
-
+            //设置图表的配置项
             chartInstance.current.setOption(option);
 
             // 响应式调整
             const handleResize = () => {
+                //在窗口大小改变时调整图表大小
                 chartInstance.current?.resize();
             };
             window.addEventListener('resize', handleResize);
