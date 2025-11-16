@@ -4,7 +4,7 @@ import userReducer from './module/user'
 const store=configureStore({
     reducer:{
         bill:billReducer,
-        token:userReducer
+        user:userReducer
     }
 })
 export default store

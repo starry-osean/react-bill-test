@@ -3,7 +3,7 @@
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  margin: 12px;
+  margin-bottom: 16px;
 
   .header {
     .date {
@@ -121,5 +121,31 @@
         }
       }
     }
+  }
+}
+.deleteBillBtn {
+  // 基础样式
+  background: #ff4757;
+  color: white;
+  margin-top: 10px;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  
+  // 悬停效果
+  &:hover {
+    background: #ff3742;
+    transform: scale(1.5);
+    box-shadow: 0 2px 8px rgba(255, 71, 87, 0.4);
   }
 }

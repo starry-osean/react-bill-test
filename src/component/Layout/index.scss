@@ -18,57 +18,7 @@ $color-gray-border: #f0f0f0;
   display: flex;
   flex-direction: column;
   background-color: $color-gray-light;
-  .humam {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: $spacing-md $spacing-lg;
-    background: $primary-gradient;
-    color: $color-white;
-    box-shadow: $shadow-light;
-    margin-left: 20px;
-    margin-right: 20px; 
-    img {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-    }
-    
-    p {
-     
-      font-size: 15px;
-      margin-left: -760px;
-      span {
-        font-weight: 800;
-        font-size: 20px;
-      }
-    }
-    
-    .tip {
-      cursor: pointer;
-      padding: $spacing-sm;
-      border-radius: 50%;
-      transition: background-color 0.3s ease;
-      
-      &:hover {
-        background-color: rgba(255, 255, 255, 0.1);
-      }
-      
-      svg {
-        display: block;
-        
-        path {
-          transition: fill 0.3s ease;
-        }
-      }
-      
-      &:hover svg path {
-        fill: $color-white;
-      }
-    }
-  }
+  
 
   // 通用卡片样式
   .card {

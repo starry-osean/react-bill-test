@@ -4,12 +4,16 @@ import request from "../../utils/request.ts";
 const useStore = createSlice({
     name: 'user', 
     initialState: {
-        token: localStorage.getItem('token_key')||''
+        token: localStorage.getItem('token_key')||'',
+        user:[]
     },
     reducers: {
         setToken(state, action) {
             state.token = action.payload
-        }
+        },
+        getUserInfo(state,action){
+            state.user=action.payload
+        },
     }
 })
 
@@ -32,8 +36,17 @@ const fetchRegister=(registerForm)=>{
         
     }
 }
-const { setToken } = useStore.actions
+const fetchUser=()=>{
+    return async(dispatch)=>{
+        const res = await request.get('http://localhost:8800/userInfo');
+        dispatch(getUserInfo(res))
+        console.log('res',res);
+        
+        
+    }
+}
+const { setToken ,getUserInfo} = useStore.actions
 const userReducer = useStore.reducer
 
-export { setToken, fetchLogin,fetchRegister }
+export { setToken, fetchLogin,fetchRegister,fetchUser }
 export default userReducer

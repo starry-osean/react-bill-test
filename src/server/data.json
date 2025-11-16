@@ -65,14 +65,6 @@
       "type": "expense"
     },
     {
-      "date": "2025-11-01",
-      "id": "9",
-      "money": -1200,
-      "category": "房租",
-      "description": "11月房租",
-      "type": "expense"
-    },
-    {
       "date": "2025-12-02",
       "id": "10",
       "money": -60,
@@ -96,25 +88,41 @@
       "type": "expense"
     },
     {
-      "id": "3caa",
-      "type": "income",
-      "money": 12,
-      "date": "2025-11-14T16:00:00.000Z",
-      "useFor": "salary"
+      "id": "5f0f",
+      "type": "expense",
+      "money": 0,
+      "useFor": "drinks"
     },
     {
-      "id": "aed7",
-      "type": "income",
-      "money": 12,
-      "date": "2025-11-14T16:00:00.000Z",
-      "useFor": "salary"
+      "id": "fa06",
+      "type": "expense",
+      "money": -20,
+      "useFor": "drinks"
     },
     {
-      "id": "f025",
-      "type": "income",
-      "money": 12,
-      "date": "2025-11-14T16:00:00.000Z",
-      "useFor": "salary"
+      "id": "92d9",
+      "type": "expense",
+      "money": -30,
+      "useFor": "food"
+    },
+    {
+      "id": "f440",
+      "type": "expense",
+      "money": -60,
+      "useFor": "game"
+    },
+    {
+      "id": "e82d",
+      "type": "expense",
+      "money": -100,
+      "date": "2025-11-11T16:00:00.000Z",
+      "useFor": "bodybuilding"
+    },
+    {
+      "id": "3f1a",
+      "type": "expense",
+      "money": -50,
+      "useFor": "drinks"
     }
   ],
   "summary": {
@@ -158,5 +166,13 @@
     "created_date": "2022-10-24",
     "last_updated": "2022-11-02",
     "version": "1.0"
+  },
+  "userInfo":[
+    {
+    "id":"1",
+    "birth":"2025-11-16",
+    "email":"111",
+    "text":"哈哈哈哈哈哈哈哈"
   }
+  ]
 }

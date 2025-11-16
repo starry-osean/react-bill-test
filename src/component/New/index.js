@@ -13,7 +13,7 @@ import dayjs from 'dayjs'
 const New = () => {
   const navigate = useNavigate()
   // 1. 准备一个控制收入支出的状态
-  const [billType, setBillType] = useState('expense') // pay-支出 income-收入
+  const [billType, setBillType] = useState('expense')
   // 收集金额
   const [money, setMoney] = useState(0)
   const moneyChange = (value) => {
@@ -32,7 +32,7 @@ const New = () => {
       date: date,
       useFor: useFor
     }
-    console.log(data)
+    console.log('new',data)
     dispatch(addBillList(data))
     alert('保存成功')
   }
@@ -119,7 +119,7 @@ const New = () => {
                       <div className="icon">
                         <Icon type={item.type} />
                       </div>
-                      <div className="text">{item.name}</div>
+                      <div className="text" >{item.name}</div>
                     </div>
                   )
                 })}

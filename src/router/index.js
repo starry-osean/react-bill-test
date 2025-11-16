@@ -1,3 +1,4 @@
+import User from '../component/User'
 import Layout from '../component/Layout'
 import Mouth from '../component/Mouth'
 import New from '../component/New'
@@ -15,6 +16,9 @@ const router=createBrowserRouter([
             },{
                 path:'year',
                 element:<Year/>
+            },{
+                path:'/user',
+                element:<User/>
             }
         ]
     },{
@@ -23,7 +27,8 @@ const router=createBrowserRouter([
     },{
         path:'/login',
         element:<Login/>
-    },{
+    }
+    ,{
         index: true,  // 默认路由
         element: <Login />
     },
